@@ -249,8 +249,8 @@ public class ReactorPeripheral implements IPeripheral {
         Map<Integer, Integer> rodPositions = new LinkedHashMap<>();
         float[] e = this.blockEntity.snapshot().ext();
         int th = 8 * (12 + 1) - 2;
-        rodPositions.put(1, Math.round((float)th * Mth.clamp(e[18], 0.0F, 1.0F)));
-        rodPositions.put(2, Math.round((float)th * Mth.clamp(e[18 + 1], 0.0F, 1.0F)));
+        rodPositions.put(1, Math.round(th * Mth.clamp(e[18], 0.0F, 1.0F)));
+        rodPositions.put(2, Math.round(th * Mth.clamp(e[18 + 1], 0.0F, 1.0F)));
         return rodPositions;
     }
     // getCoreMap
@@ -273,8 +273,7 @@ public class ReactorPeripheral implements IPeripheral {
                     boolean uncovered = v < 0.0F;
                     v = Math.abs(v);
                     int kind = (int)(v / 16.0F);
-                    float power = v - (float)kind * 16.0F;
-                    int var10000;
+                    float power = v - kind * 16.0F;
                     Object[] tmp = {kind, power};
                     map.put(i+1, tmp);
                 }
