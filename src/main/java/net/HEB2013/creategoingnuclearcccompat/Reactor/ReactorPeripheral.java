@@ -114,21 +114,10 @@ public class ReactorPeripheral implements IPeripheral {
     public final double getXenonPoison() {
         return this.blockEntity.snapshot().xenon();
     }
-    // getFuelLevel
-    @LuaFunction
-    public final double getFuelLevel() {
-        float[] e = this.blockEntity.snapshot().ext();
-        return e[21];
-    }
     // getPrimaryCoolantLevel
     @LuaFunction
     public final double getPrimaryCoolantLevel() {
         return this.blockEntity.snapshot().coolant();
-    }
-    // getSpentFuelLevel
-    @LuaFunction
-    public final double getSpentFuelLevel() {
-        return this.blockEntity.snapshot().waste();
     }
     // getContainment
     @LuaFunction
@@ -423,8 +412,13 @@ public class ReactorPeripheral implements IPeripheral {
     }
     // setReliefValve
     @LuaFunction
-    public final void setReliefValve() {
-        this.blockEntity.toggleManualValve();
+    public final void setReliefValve(boolean open) {
+        if (this.blockEntity.snapshot().venting() && !open) {
+            this.blockEntity.toggleManualValve();
+        }
+        if (!this.blockEntity.snapshot().venting() && open) {
+            this.blockEntity.toggleManualValve();
+        }
     }
     //
     // ACTIONS
