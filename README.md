@@ -1,4 +1,7 @@
 # Create: Going Nuclear CC:Tweaked Compat
+<p align="center">
+<img width="512" height="512" alt="icon" src="https://github.com/user-attachments/assets/e7962751-2540-4c87-9655-c3ac298f3d97"/>
+</p>
 
 ## Mod Information
 
